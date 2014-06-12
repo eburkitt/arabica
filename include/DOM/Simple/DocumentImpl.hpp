@@ -19,6 +19,7 @@
 
 #include <set>
 #include <algorithm>
+#include <atomic>
 
 namespace Arabica
 {
@@ -531,7 +532,7 @@ class DocumentImpl : public DOM::Document_impl<stringT, string_adaptorT>,
     stringT namespaceURI_;
     stringT qualifiedName_;
     unsigned long changesCount_;
-    unsigned long refCount_;
+    std::atomic<unsigned long> refCount_;
 
     mutable std::set<NodeImplT*> orphans_;
     std::set<AttrImplT*> idNodes_;

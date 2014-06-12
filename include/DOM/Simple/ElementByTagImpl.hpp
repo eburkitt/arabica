@@ -4,6 +4,8 @@
 #include <DOM/Node.hpp>
 #include <DOM/Simple/NodeImpl.hpp>
 
+#include <atomic>
+
 namespace Arabica
 {
 namespace SimpleDOM
@@ -136,7 +138,7 @@ class ElementByTagList : public DOM::NodeList_impl<stringT, string_adaptorT>
     bool allNamespaces_;
     bool allNames_;
     mutable unsigned int changes_;
-    unsigned int refCount_;
+    std::atomic<unsigned int> refCount_;
 }; // class ElementByTagList
 
 } // namespace SimpleDOM

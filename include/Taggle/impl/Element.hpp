@@ -2,6 +2,7 @@
 #define ARABICA_SAX_TAGSOUP_ELEMENT_HPP
 
 #include <string>
+#include <atomic>
 #include <SAX/helpers/AttributesImpl.hpp>
 #include "ElementType.hpp"
 
@@ -170,7 +171,7 @@ private:
   AttributesImpl<std::string> atts_;		// attributes of element
   Element next_;		// successor of element
   bool preclosed_;		// this element has been preclosed
-  int refCount_;
+  std::atomic<int> refCount_;
 
 public:
   /**

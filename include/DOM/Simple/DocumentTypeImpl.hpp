@@ -4,6 +4,7 @@
 #include <DOM/DocumentType.hpp>
 #include <DOM/Simple/NodeImpl.hpp>
 #include <vector>
+#include <atomic>
 
 namespace Arabica
 {
@@ -173,7 +174,7 @@ class DocumentTypeImpl : public DOM::DocumentType_impl<stringT, string_adaptorT>
     NamedNodeMapT notations_;
     NamedNodeMapT elements_;
     std::vector<stringT> IDs_;
-    unsigned int refCount_;
+    std::atomic<unsigned int> refCount_;
 }; // class DOMImplementation
 
 } // namespace SAX2DOM
